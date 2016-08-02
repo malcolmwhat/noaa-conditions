@@ -1,0 +1,2 @@
+defmodule NoaaConditions do
+end
