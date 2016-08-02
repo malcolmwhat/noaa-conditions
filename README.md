@@ -1,24 +1,13 @@
 # NoaaConditions
+This is an exercise from the book `Programming Elixir`. It is effectively
+the same as idea as https://github.com/malcolmwhat/issues however I don't need
+to credit anyone else for any of the code.
 
-**TODO: Add description**
-
-## Installation
-
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
-
-  1. Add `noaa_conditions` to your list of dependencies in `mix.exs`:
-
-    ```elixir
-    def deps do
-      [{:noaa_conditions, "~> 0.1.0"}]
-    end
-    ```
-
-  2. Ensure `noaa_conditions` is started before your application:
-
-    ```elixir
-    def application do
-      [applications: [:noaa_conditions]]
-    end
-    ```
-
+### The Exercise
+In the United States, the National Oceanic and Atmospheric Administration
+provides hourly XML feeds of conditions at 1,800 locations. For example,
+the feed for a small airport close to where I’m writing this is at
+http://w1.weather.gov/xml/current_obs/KDTO.xml .
+Write an application that fetches this data, parses it, and displays it in a
+nice format.
+(Credit for the exercise goes to Dave Thomas...)
