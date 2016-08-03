@@ -2,19 +2,21 @@ defmodule NoaaConditions.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :noaa_conditions,
-     version: "0.1.0",
-     elixir: "~> 1.3",
-     build_embedded: Mix.env == :prod,
-     start_permanent: Mix.env == :prod,
-     deps: deps()]
+    [ app: :noaa_conditions,
+      escript: escript_config,
+      version: "0.1.0",
+      elixir: "~> 1.3",
+      build_embedded: Mix.env == :prod,
+      start_permanent: Mix.env == :prod,
+      deps: deps()
+    ]
   end
 
   # Configuration for the OTP application
   #
   # Type "mix help compile.app" for more information
   def application do
-    [applications: [:logger]]
+    [applications: [ :logger, :httpoison ]]
   end
 
   # Dependencies can be Hex packages:
@@ -27,6 +29,13 @@ defmodule NoaaConditions.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    []
+    [
+      {:httpoison, "~>0.9.0"},
+      {:sweet_xml, "~>0.6.1"}
+    ]
+  end
+
+  defp escript_config do
+    [ main_module: NoaaConditions.CLI ]
   end
 end
