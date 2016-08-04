@@ -10,7 +10,7 @@ defmodule ObservationsTest do
   end
 
   test "Valid location_code fetches correctly" do
-    assert { :ok, _ } = fetch("KBXK")
+    assert fetch("KBXK")
   end
 
   test "Valid location has valid fields populated" do

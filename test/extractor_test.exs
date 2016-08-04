@@ -5,13 +5,13 @@ defmodule ExtractorTest do
   test "Extractor works correctly for a single field" do
     assert { :ok, xml } = NoaaConditions.Observations.fetch("KDMA")
 
-    assert '32.16667' == NoaaConditions.Extractor.get(xml, "latitude")
+    assert "32.16667" == NoaaConditions.Extractor.get(xml, "latitude")
   end
 
   test "Extractor works correctly for multiple fields" do
     assert { :ok, xml } = NoaaConditions.Observations.fetch("KDMA")
 
-    vals = ['32.16667', '-110.88333', 'Davis-Monthan Air Force Base, AZ']
+    vals = ["32.16667", "-110.88333", "Davis-Monthan Air Force Base, AZ"]
     fields = ["latitude", "longitude", "location"]
 
     assert vals == NoaaConditions.Extractor.get(xml, fields)
@@ -20,7 +20,7 @@ defmodule ExtractorTest do
   test "Extractor returns maps correctly" do
     assert { :ok, xml } = NoaaConditions.Observations.fetch("KDMA")
 
-    vals = ['32.16667', '-110.88333', 'Davis-Monthan Air Force Base, AZ']
+    vals = ["32.16667", "-110.88333", "Davis-Monthan Air Force Base, AZ"]
     fields = ["latitude", "longitude", "location"]
     test_map = Enum.zip(fields, vals) |> Map.new
 
